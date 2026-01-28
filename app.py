@@ -26,7 +26,7 @@ if "game" not in st.session_state:
 
 game = st.session_state.game  # ショートカット
 
-st.title("人狼ゲーム (OOP版)")
+st.title("人狼ゲーム")
 
 # --- Sidebar ---
 with st.sidebar:
