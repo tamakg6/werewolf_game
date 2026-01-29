@@ -1,6 +1,6 @@
 import streamlit as st
 from game import WerewolfGame
-from roles import Villager, Werewolf, Seer, Guard, Medium, Madman, Fox
+from roles import Villager, Werewolf, Seer, Guard, Medium, Madman, Fox, Fanatic
 
 # --- UI Theme Helpers ---
 def get_theme():
