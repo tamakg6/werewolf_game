@@ -5,3 +5,4 @@ from .guard import Guard
 from .medium import Medium
 from .madman import Madman
 from .fox import Fox
+from .fanatic import Fanatic
