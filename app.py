@@ -73,6 +73,7 @@ elif game.phase == "setup":
     with col4: num_medium = st.number_input("霊媒師", 0, 1, 0)
     with col5: num_madman = st.number_input("狂人", 0, 1, 0)
     with col6: num_fox = st.number_input("妖狐", 0, 1, 0)
+    with col7: num_fanatic = st.number_input("狂信者", 0, 1, 0)
 
     num_villager = num_players - (num_wolf + num_seer + num_guard + num_medium + num_madman + num_fox)
     st.metric("村人", num_villager)
@@ -81,6 +82,7 @@ elif game.phase == "setup":
         role_counts = {
             "wolf": num_wolf, "seer": num_seer, "guard": num_guard,
             "medium": num_medium, "madman": num_madman, "fox": num_fox
+            "fanatic": num_fanatic
         }
         game.setup_game(player_names, role_counts)
         st.rerun()
@@ -140,6 +142,21 @@ elif game.phase == "night":
             if st.button("決定", use_container_width=True):
                 target_obj = next(p for p in targets if p.name == target_name)
                 game.register_wolf_vote(p_now.idx, target_obj.idx, conf == "あり")
+                game.current_turn_idx += 1
+                st.rerun()
+
+        # --- 狂信者の行動 ---
+        elif isinstance(role, Fanatic):
+            alive_wolves = game.get_alive_wolves()
+            st.info("👥 **ご主人様（人狼）**: ")
+            if alive_wolves:
+                cols = st.columns(3)
+                for i, w in enumerate(alive_wolves):
+                    with cols[i%3]: st.success(f"{w.name}", icon="🐺")
+            else:
+                st.warning("人狼は全滅しています。")
+            
+            if st.button("確認して次へ", use_container_width=True):
                 game.current_turn_idx += 1
                 st.rerun()
 
