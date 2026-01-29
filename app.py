@@ -81,7 +81,7 @@ elif game.phase == "setup":
     if st.button("ゲーム開始", use_container_width=True):
         role_counts = {
             "wolf": num_wolf, "seer": num_seer, "guard": num_guard,
-            "medium": num_medium, "madman": num_madman, "fox": num_fox
+            "medium": num_medium, "madman": num_madman, "fox": num_fox,
             "fanatic": num_fanatic
         }
         game.setup_game(player_names, role_counts)
