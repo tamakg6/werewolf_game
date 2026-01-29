@@ -1,5 +1,5 @@
 import random
-from roles import Villager, Werewolf, Seer, Guard, Medium, Madman, Fox
+from roles import Villager, Werewolf, Seer, Guard, Medium, Madman, Fox, Fanatic
 
 class Player:
     def __init__(self, idx, name, role):
@@ -46,6 +46,7 @@ class WerewolfGame:
             "霊媒師": (Medium, role_counts["medium"]),
             "狂人": (Madman, role_counts["madman"]),
             "妖狐": (Fox, role_counts["fox"]),
+            "狂信者": (Fanatic, role_counts.get("fanatic", 0)),
         }
         
         # 指定役職を追加
