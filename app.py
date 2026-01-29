@@ -66,7 +66,7 @@ elif game.phase == "setup":
         player_names.append(name)
 
     st.subheader("役職構成")
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
     with col1: num_wolf = st.number_input("人狼", 1, num_players // 2, 2)
     with col2: num_seer = st.number_input("占い師", 0, 1, 1)
     with col3: num_guard = st.number_input("騎士", 0, 1, 1)
